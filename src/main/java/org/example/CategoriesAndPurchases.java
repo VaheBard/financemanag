@@ -1,7 +1,5 @@
 package org.example;
 
-import org.json.simple.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -68,6 +66,7 @@ public class CategoriesAndPurchases {
         //заводим мапу куда будем положить ключ категория, значение сумма всех покупок по данной категории
         Map<String, Integer> purchasesSumByCategory = new HashMap<>();//key = "category", value = sumAllPurchasesByThisCategory
 
+
         for (CategoriesAndPurchases c : purchases) {//в цикле перебираем лист покупок
 
             String category;//ниже к этой переменной присвоится название категории данного товара
@@ -95,10 +94,8 @@ public class CategoriesAndPurchases {
             }
         }
 
-        JSONObject maxSumByCategory = new JSONObject();
-        maxSumByCategory.put(key, maxSum);
-
-        return maxSumByCategory.toJSONString();
+        return "{" + '"' + "maxCategory" + '"' + " : {" + '"' + "category" + '"'
+                + " : " + '"' + key + '"' + " , " + '"' + "sum" + '"' + " :" + maxSum + " } }";
     }
 
     private static Map<String, String> getProductAndCategory() {
