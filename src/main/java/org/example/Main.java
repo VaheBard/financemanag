@@ -27,7 +27,7 @@ public class Main {
                     // Преобразуем строку формата json в Объект покупки
                     Gson gson = new Gson();
                     CategoriesAndPurchases purchase = gson.fromJson(getAnswer, CategoriesAndPurchases.class);
-                    //Добавляем объект покупки в корзину
+                    //Добавляем объект покупки в лист
                     purchasesToList.add(purchase);
                     //Получаем
                     String str = CategoriesAndPurchases.getMaxCategory(purchasesToList);
