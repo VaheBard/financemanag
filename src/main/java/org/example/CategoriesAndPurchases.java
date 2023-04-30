@@ -1,6 +1,4 @@
 package org.example;
-
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.BufferedReader;
@@ -101,9 +99,17 @@ public class CategoriesAndPurchases implements Serializable {
                 key = entryMap.getKey();//сюда передается название категории
             }
         }
-        
-        return "{" + '"' + "maxCategory" + '"' + " : {" + '"' + "category" + '"'
-                + " : " + '"' + key + '"' + " , " + '"' + "sum" + '"' + " :" + maxSum + " } }";
+
+
+        JSONObject j = new JSONObject();
+        j.put("category" , key);
+
+        j.put("sum" , maxSum);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("maxCategory", j);
+
+        return jsonObject.toJSONString();
 
     }
 

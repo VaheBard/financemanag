@@ -31,7 +31,7 @@ public class Client {
 
             //Вывод в консоль результата
             String getMaxCategory = in.readLine();
-            System.out.println("Максимальная по абсолютным тратам категория за весь период: " + getMaxCategory);
+            System.out.println(getMaxCategory);
 
         }
     }
