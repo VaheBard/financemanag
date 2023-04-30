@@ -95,10 +95,15 @@ public class CategoriesAndPurchases {
             }
         }
 
-        JSONObject maxSumByCategory = new JSONObject();
-        maxSumByCategory.put(key, maxSum);
+        JSONObject j = new JSONObject();
+        j.put("category" , key);
 
-        return maxSumByCategory.toJSONString();
+        j.put("sum" , maxSum);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("maxCategory", j);
+
+        return jsonObject.toJSONString();
     }
 
     private static Map<String, String> getProductAndCategory() {
