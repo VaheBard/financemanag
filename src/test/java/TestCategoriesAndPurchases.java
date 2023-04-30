@@ -37,10 +37,13 @@ public class TestCategoriesAndPurchases {
         String maxCategoryName = CategoriesAndPurchases.getMaxCategory(purchases);
 
         JSONObject json = new JSONObject();
-        json.put("одежда", 23456);
+        json.put("category", "одежда");
+        json.put("sum" ,23456 );
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("maxCategory", json);
 
         ObjectMapper mapper = new ObjectMapper();
-        assertEquals(mapper.readTree(maxCategoryName), mapper.readTree(String.valueOf(json)));
+        assertEquals(mapper.readTree(maxCategoryName), mapper.readTree(String.valueOf(jsonObject)));
     }
 
     @Test
@@ -51,10 +54,14 @@ public class TestCategoriesAndPurchases {
         System.out.println(str);
 
         JSONObject json = new JSONObject();
-        json.put("Другое", 112345);
+        json.put("category", "Другое");
+        json.put("sum", 112345);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("maxCategory", json);
 
         ObjectMapper mapper = new ObjectMapper();
-        assertEquals(mapper.readTree(str), mapper.readTree(String.valueOf(json)));
+        assertEquals(mapper.readTree(str), mapper.readTree(String.valueOf(jsonObject)));
 
     }
 }

@@ -1,13 +1,19 @@
 package org.example;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CategoriesAndPurchases {
+
+
+public class CategoriesAndPurchases implements Serializable {
     private final String title;
     private final String date;
     private final int sum;
@@ -84,18 +90,21 @@ public class CategoriesAndPurchases {
             }
         }
 
-        int maxSum = 0;
+
         String key = null;
+        int maxSum = 0;
         for (Map.Entry<String, Integer> entryMap : purchasesSumByCategory.entrySet()) {
             //в этом цикле определяем название категории по которой выполнено больше всех в сумме покупок
             if (entryMap.getValue() > maxSum) {
-                key = entryMap.getKey();//сюда передается название категории
+
                 maxSum = entryMap.getValue();//здесь будет сумма всех покупок по данной категории
+                key = entryMap.getKey();//сюда передается название категории
             }
         }
-
+        
         return "{" + '"' + "maxCategory" + '"' + " : {" + '"' + "category" + '"'
                 + " : " + '"' + key + '"' + " , " + '"' + "sum" + '"' + " :" + maxSum + " } }";
+
     }
 
     private static Map<String, String> getProductAndCategory() {
