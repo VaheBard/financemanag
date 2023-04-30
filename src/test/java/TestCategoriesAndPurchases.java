@@ -12,8 +12,8 @@ import static org.junit.Assert.assertEquals;
 
 public class TestCategoriesAndPurchases {
 
-    CategoriesAndPurchases purchase1 = new CategoriesAndPurchases("мыло", "2023.04.23", 50);
-    CategoriesAndPurchases purchase2 = new CategoriesAndPurchases("булка", "2023.04.22", 200);
+    CategoriesAndPurchases purchase1 = new CategoriesAndPurchases("мыло", "2023.04.23", 500);
+    CategoriesAndPurchases purchase2 = new CategoriesAndPurchases("булка", "2023.04.22", 20);
     CategoriesAndPurchases purchase3 = new CategoriesAndPurchases("шапка", "2020.11.07", 20000);
     CategoriesAndPurchases purchase4 = new CategoriesAndPurchases("курица", "2021.05.16", 350);
     CategoriesAndPurchases purchase5 = new CategoriesAndPurchases("сухарики", "2022.04.28", 50);
