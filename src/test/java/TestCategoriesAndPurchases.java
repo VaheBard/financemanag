@@ -12,8 +12,8 @@ import static org.junit.Assert.assertEquals;
 
 public class TestCategoriesAndPurchases {
 
-    CategoriesAndPurchases purchase1 = new CategoriesAndPurchases("мыло", "2023.04.23", 50);
-    CategoriesAndPurchases purchase2 = new CategoriesAndPurchases("булка", "2023.04.22", 200);
+    CategoriesAndPurchases purchase1 = new CategoriesAndPurchases("мыло", "2023.04.23", 500);
+    CategoriesAndPurchases purchase2 = new CategoriesAndPurchases("булка", "2023.04.22", 20);
     CategoriesAndPurchases purchase3 = new CategoriesAndPurchases("шапка", "2020.11.07", 20000);
     CategoriesAndPurchases purchase4 = new CategoriesAndPurchases("курица", "2021.05.16", 350);
     CategoriesAndPurchases purchase5 = new CategoriesAndPurchases("сухарики", "2022.04.28", 50);
@@ -37,10 +37,13 @@ public class TestCategoriesAndPurchases {
         String maxCategoryName = CategoriesAndPurchases.getMaxCategory(purchases);
 
         JSONObject json = new JSONObject();
-        json.put("одежда", 23456);
+        json.put("category", "одежда");
+        json.put("sum" ,23456 );
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("maxCategory", json);
 
         ObjectMapper mapper = new ObjectMapper();
-        assertEquals(mapper.readTree(maxCategoryName), mapper.readTree(String.valueOf(json)));
+        assertEquals(mapper.readTree(maxCategoryName), mapper.readTree(String.valueOf(jsonObject)));
     }
 
     @Test
@@ -51,10 +54,14 @@ public class TestCategoriesAndPurchases {
         System.out.println(str);
 
         JSONObject json = new JSONObject();
-        json.put("Другое", 112345);
+        json.put("category", "Другое");
+        json.put("sum", 112345);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("maxCategory", json);
 
         ObjectMapper mapper = new ObjectMapper();
-        assertEquals(mapper.readTree(str), mapper.readTree(String.valueOf(json)));
+        assertEquals(mapper.readTree(str), mapper.readTree(String.valueOf(jsonObject)));
 
     }
 }
