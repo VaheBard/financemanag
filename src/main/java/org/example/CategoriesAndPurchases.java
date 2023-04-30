@@ -68,6 +68,7 @@ public class CategoriesAndPurchases {
         //заводим мапу куда будем положить ключ категория, значение сумма всех покупок по данной категории
         Map<String, Integer> purchasesSumByCategory = new HashMap<>();//key = "category", value = sumAllPurchasesByThisCategory
 
+
         for (CategoriesAndPurchases c : purchases) {//в цикле перебираем лист покупок
 
             String category;//ниже к этой переменной присвоится название категории данного товара
@@ -94,6 +95,7 @@ public class CategoriesAndPurchases {
                 maxSum = entryMap.getValue();//здесь будет сумма всех покупок по данной категории
             }
         }
+
 
         JSONObject j = new JSONObject();
         j.put("category" , key);
